@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <style>
+    /* Style the footer */
+    footer {
+      position: fixed;
+      background-color: #3C8DBC;
+      padding: 38px;
+      text-align: center;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      color: #FFFF;
+            }
+
+    .header {
+      position: fixed;
+      top:0;
+      background-color: #3C8DBC;
+      padding: 43px;
+      width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-8"><strong><a class="navbar-brand " href="{% url 'Inventory:index' %}" style="color:#FFFF">GROUP PUBLISHING INDIA INVENTORY MANAGEMENT</a></strong></div>
+              <div class="col-lg-4 text-right">
+
+              <ul class="navbar-nav mr-auto navbar-fixed-top">
+              {% if user.is_authenticated %}
+
+              <li class="nav-item">
+              <a href="#">Hi, Welcome {{ user.username }} | </a>
+              <a href="{% url 'Inventory:logout' %}">Logout </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+              <a  href="{% url 'Inventory:login' %}">LogIn | </a>
+              <a  href="{% url 'Inventory:register' %}">SignUp</a>
+              </li>
+              {% endif %}
+              </ul>
+              </div>
+          </div>
+     </div>
+  </div>
+
+    {% include "Inventory/partials/messages.html" %}
+
+    <div >
+      {% block body %}
+      {% endblock %}
+    </div>
+    <footer>
+      <strong><p>#12,2nd Cross BDS Gardens, Geddalahalli, Kothanur Post, Bangalore - 560077 | Contact: 080-28444099</p></strong>
+      <strong><p>WWW.GROUPPUBLISHING.IN</p></strong>
+    </footer>
+  </body>
+</html>

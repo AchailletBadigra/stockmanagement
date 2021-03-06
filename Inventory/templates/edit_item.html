@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<br>
+<br>
+  <div class="container py-5">
+    <div class="jumbotron" style="margin-top:140px">
+      <h1>EDITING ITEM {{header}}</h1>
+      <br>
+      <br>
+      <form method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group row">
+        <label for="id_{{ field.name }}" class="col-2 col-form-label" style="font-size:17px;">{{ field.label }}</label>
+        <div class="col-10">
+          {{ field }}
+        </div>
+      </div>
+      {% endfor %}
+      <br>
+      <br>
+      <button type="submit" class="btn btn-outline-primary" name="button">EDIT/UPDATE</button>
+    </form>
+    <div>
+  </div>
+{% endblock %}

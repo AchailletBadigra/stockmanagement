@@ -1,0 +1,46 @@
+  input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+width: 100%!important;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+a{
+  color:#fff;
+}
+
+ul li{ padding: 0px 0px; margin:0px; 0px}
+
+.block{
+  position: relative;
+
+}
+.center h1 {
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+}
+
+
+a.rleo{
+  color: #3C8DBC;
+}
+
+a.rleo:hover{
+  color: blue;
+}

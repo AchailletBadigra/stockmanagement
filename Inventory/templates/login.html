@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+<!--Login-->
+
+<div style="display:flex; justify-content:center; align-items:center">
+<div class="container py-5" style="margin-top:230px; align:Center">
+  <div class="jumbotron" style="align:Center">
+  <h1>Login</h1>
+  <br>
+  <br>
+  <form method="POST">
+    {% csrf_token %}
+    {{ login_form|crispy }}<br>
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  <br>
+  <p class="text-center">Don't have an account? <a  class="rleo" href="{% url 'Inventory:register' %}">Create an account | </a>
+  <a class="rleo" href="{% url 'reset_password' %}">Forgot your password.</a>
+  </p>
+  </div>
+</div>
+</div>
+{% endblock %}

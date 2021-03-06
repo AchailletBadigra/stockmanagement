@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block body %}
+<br>
+<div class="jumbotron text-center" style="margin-top:100px">
+
+    <a href="{% url 'Inventory:display_Rocky_Railway' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">ROCKY RAILWAY</a>
+
+    <a href="{% url 'Inventory:display_Roar' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">ROAR</a>
+
+    <a href="{% url 'Inventory:display_Shipwreched' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">SHIPWRECKED</a>
+
+    <a href="{% url 'Inventory:display_FWN1' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">FWN1</a>
+
+    <a href="{% url 'Inventory:display_FWN2' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">FWN2</a>
+
+    <a href="{% url 'Inventory:display_FWN3' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">FWN3</a>
+
+    <a href="{% url 'Inventory:display_LIFE_OF_JESUS' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">LIFE OF JESUS</a>
+
+    <a href="{% url 'Inventory:display_Friends_with_God_Bible_Story' %}" class="btn btn-primary btn-md" role="button" style="padding:10px 20px; font-size:20px; font:Adobe Garamond Pro Bold">FRIENDS WITH GOD BIBLE STORY</a>
+    <a href="{% url 'Inventory:add_Rocky_Railway' %}" class="btn btn-warning btn-sm" role="button" style="padding:4px 20px; font-size:30px; font:Adobe Garamond Pro Bold">+</a>
+
+  <br>
+  <br>
+    <h6 style="font:Adobe Garamond Pro Bold">Currently Viewing {{header}}</h6>
+  <br>
+
+    <table class="table table-blue text-center">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>PRODUCT</th>
+          <th>TOTAL PRODUCED</th>
+          <th>SALES</th>
+          <th>TOTAL AVAILABLE</th>
+        </tr>
+    </thead>
+    <tbody>
+
+      {% for item in items %}
+        <tr>
+          <td style="font:Adobe Garamond Pro Bold">{{ item.pk }}</td>
+          <td>{{ item.Product }}</td>
+          <td>{{ item.Total_Produced }}</td>
+          <td>{{ item.Sales }}</td>
+          <td>{{ item.Save }}</td>
+
+          {% if header == "Rocky_Railway" %}
+          <td>
+            <a href="{% url 'Inventory:edit_Rocky_Railway' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_Rocky_Railway' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "Roar" %}
+          <td>
+            <a href="{% url 'Inventory:edit_Roar' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_Roar' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "Shipwreched" %}
+          <td>
+            <a href="{% url 'Inventory:edit_Shipwreched' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_Shipwreched' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "FWN1" %}
+          <td>
+            <a href="{% url 'Inventory:edit_FWN1' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_FWN1' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "FWN2" %}
+          <td>
+            <a href="{% url 'Inventory:edit_FWN2' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_FWN2' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "FWN3" %}
+          <td>
+            <a href="{% url 'Inventory:edit_FWN3' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_FWN3' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% elif header == "LIFE_OF_JESUS" %}
+          <td>
+            <a href="{% url 'Inventory:edit_LIFE_OF_JESUS' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_LIFE_OF_JESUS' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+
+          {% else %}
+          <td>
+            <a href="{% url 'Inventory:edit_Friends_with_God_Bible_Story' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+            <a href="{% url 'Inventory:delete_Friends_with_God_Bible_Story' item.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+          </td>
+          {% endif %}
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}
