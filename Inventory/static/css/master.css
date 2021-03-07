@@ -19,7 +19,7 @@ box-sizing: border-box;
 }
 
 a{
-  color:#fff;
+  color:#3C8DBC;
 }
 
 ul li{ padding: 0px 0px; margin:0px; 0px}
@@ -42,5 +42,5 @@ a.rleo{
 }
 
 a.rleo:hover{
-  color: blue;
+  color: white;
 }
